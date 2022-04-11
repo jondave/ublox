@@ -7,6 +7,7 @@ The driver was originally written by Johannes Meyer. Changes made later are deta
 To use RTK correction data use https://github.com/jondave/ntrip_ros.
 This published to topic rtcm and the ublox node subscribes to rtcm topic.
 The position covariance (error/accuracy) greatly improves with RTK.
+Without RTK position covariance around 1-2m (or m^2), with RTK 0.001-0.01m (or m^2).
 
 ## Options
 
