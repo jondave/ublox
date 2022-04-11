@@ -9,6 +9,8 @@ This published to topic rtcm and the ublox node subscribes to rtcm topic.
 The position covariance (error/accuracy) greatly improves with RTK.
 Without RTK position covariance around 1-2m (or m^2), with RTK 0.001-0.01m (or m^2).
 
+For Holybro F9P reciever may want to use/edit ```zed_f9p.yaml``` config file rather than use/edit the ```c94_m8p_rover.yaml```.
+
 ## Options
 
 Example .yaml configuration files are included in `ublox_gps/config`. Consult the u-blox documentation for your device for the recommended settings.
