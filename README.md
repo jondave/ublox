@@ -3,6 +3,11 @@ The `ublox` package provides support for [u-blox](http://www.u-blox.com) GPS rec
 
 The driver was originally written by Johannes Meyer. Changes made later are detailed in the version history below.
 
+## My notes
+To use RTK correction data use https://github.com/jondave/ntrip_ros.
+This published to topic rtcm and the ublox node subscribes to rtcm topic.
+The position covariance (error/accuracy) greatly improves with RTK.
+
 ## Options
 
 Example .yaml configuration files are included in `ublox_gps/config`. Consult the u-blox documentation for your device for the recommended settings.
