@@ -11,6 +11,9 @@ Without RTK position covariance around 1-2m (or m^2), with RTK 0.001-0.01m (or m
 
 For Holybro F9P reciever may want to use/edit ```zed_f9p.yaml``` config file rather than use/edit the ```c94_m8p_rover.yaml```.
 
+## Could not open serial port :/dev/ttyACM0 open: Permission denied
+```sudo usermod -a -G dialout $USER```
+
 ## Options
 
 Example .yaml configuration files are included in `ublox_gps/config`. Consult the u-blox documentation for your device for the recommended settings.
