@@ -14,6 +14,45 @@ For Holybro F9P reciever may want to use/edit ```zed_f9p.yaml``` config file rat
 ## Could not open serial port :/dev/ttyACM0 open: Permission denied
 ```sudo usermod -a -G dialout $USER```
 
+## dynamic_model
+https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
+
+8.1 Platform settings
+u-blox receivers support different dynamic platform models (see table below) to adjust the
+navigation engine to the expected application environment. These platform settings can be
+changed dynamically without performing a power cycle or reset. The settings improve the
+receiver's interpretation of the measurements and thus provide a more accurate position output.
+Setting the receiver to an unsuitable platform model for the given application environment is likely
+to result in a loss of receiver performance and position accuracy.
+
+Dynamic Platform Models
+| Platform     | Description                                                                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Portable     | Applications with low acceleration, e.g. portable devices. Suitable for most situations.                                                         |
+| Stationary   | Used in timing applications (antenna must be stationary) or other stationary applications. Velocity restricted to 0 m/s. Zero dynamics assumed.  |
+| Pedestrian   | Applications with low acceleration and speed, e.g. how a pedestrian would move. Low acceleration assumed.                                        |
+| Automotive   | Used for applications with equivalent dynamics to those of a passenger car. Low vertical acceleration assumed.                                   |
+| At sea       | Recommended for applications at sea, with zero vertical velocity. Zero vertical velocity assumed. Sea level assumed.                             |
+| Airborne <1g | Used for applications with a higher dynamic range and greater vertical acceleration than a passenger car. No 2D position fixes supported.        |
+| Airborne <2g | Recommended for typical airborne environments. No 2D position fixes supported.                                                                   |
+| Airborne <4g | Only recommended for extremely dynamic environments. No 2D position fixes supported.                                                             |
+| Wrist        | Only recommended for wrist-worn applications. Receiver will filter out arm motion (just available for protocol version > 17).                    |
+| Bike         | Used for applications with equivalent dynamics to those of a motor bike. Low vertical acceleration assumed.                                      |
+
+Dynamic Platform Model Details
+| Platform     | Max Altitude [m]  | MAX Horizontal Velocity [m/s]  | MAX Vertical Velocity [m/s]  | Sanity check type Max Position  | Max Position Deviation |
+|--------------|-------------------|--------------------------------|------------------------------|---------------------------------|------------------------|
+| Portable     | 12000             | 310                            | 50                           | Altitude and Velocity           | Medium                 |
+| Stationary   | 9000              | 10                             | 6                            | Altitude and Velocity           | Small                  |
+| Pedestrian   | 9000              | 30                             | 20                           | Altitude and Velocity           | Small                  |
+| Automotive   | 6000              | 100                            | 15                           | Altitude and Velocity           | Medium                 |
+| At sea       | 500               | 25                             | 5                            | Altitude and Velocity           | Medium                 |
+| Airborne <1g | 50000             | 100                            | 100                          | Altitude and Velocity           | Large                  |
+| Airborne <2g | 50000             | 250                            | 100                          | Altitude                        | Large                  |
+| Airborne <4g | 50000             | 500                            | 100                          | Altitude                        | Large                  |
+| Wrist        | 9000              | 30                             | 20                           | Altitude and Velocity           | Medium                 |
+
+
 ## Options
 
 Example .yaml configuration files are included in `ublox_gps/config`. Consult the u-blox documentation for your device for the recommended settings.
