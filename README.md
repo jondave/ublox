@@ -14,6 +14,18 @@ For Holybro F9P reciever may want to use/edit ```zed_f9p.yaml``` config file rat
 ## Could not open serial port :/dev/ttyACM0 open: Permission denied
 ```sudo usermod -a -G dialout $USER```
 
+## Accuracy
+GPS circular error probable (CEP) (Defined as the radius of a circle centered on the true value that contains 50% of the actual GPS measurements. So a receiver with 1 meter CEP accuracy will be within one meter of the true measurement 50% of the time.)
+
+CEP of uBlox Zed-F9P reciever;
+- PVT - 1.5m
+- SBAS - 1.0m
+- RTK - 0.01m
+
+Take the HDOP or X,Y position covariance in ROS and multiply by these CEP values to get the accuracy. E.g. if covariance is 0.1m with SBAS 0.5m x 1.0m = accuracy = 0.5m.
+
+https://content.u-blox.com/sites/default/files/ZED-F9P-04B_DataSheet_UBX-21044850.pdf
+
 ## dynamic_model
 https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
 
