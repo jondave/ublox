@@ -17,7 +17,7 @@ For Holybro F9P reciever may want to use/edit ```zed_f9p.yaml``` config file rat
 ## Accuracy
 GPS circular error probable (CEP) (Defined as the radius of a circle centered on the true value that contains 50% of the actual GPS measurements. So a receiver with 1 meter CEP accuracy will be within one meter of the true measurement 50% of the time.)
 
-CEP of uBlox Zed-F9P reciever;
+CEP of uBlox ZED-F9P reciever;
 - PVT - 1.5m
 - SBAS - 1.0m
 - RTK - 0.01m
